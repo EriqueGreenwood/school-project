@@ -4,20 +4,32 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-2/5 max-h-96 bg-gray-600 rounded justify-s-center">
-      <div>
-        <h1>
-          Hypertrophy Pal
-        </h1>
+    <div className="flex flex-col w-2/5 max-h-96 min-h-96 bg-gray-600 rounded justify-self-center items-center">
+      <div className="flex flex-col space-y-10 items-center">
+        <div className="flex justify-center">
+          <h1 className="font-mono text-3xl">
+            Hypertrophy Pal
+          </h1>
+        </div>
+        <div className="flex min-h-24 justify-center items-center">
+          <div className="w-6 h-16 rounded-lg bg-black "/>
+          <div className="w-16 h-6 rounded-sm bg-black ml-1"/> 
+          <div className="w-6 h-16 rounded-lg bg-black ml-1"/>
+        </div>
+        <div className="max-w-fit">
+          <ClerkProvider>
+            <SignedOut>
+              <SignInButton className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full basis-1/4 max-w-24 max-h-10 "/>  
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            </ClerkProvider>
+        </div>
       </div>
-      <ClerkProvider>
-        <SignedOut>
-          <SignInButton className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full basis-1/4"/>  
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-        </ClerkProvider>
+      <div className="items-end">
+        <h1>Developed by: Erique Greenwood</h1>
+      </div>
     </div>
   );
 }
